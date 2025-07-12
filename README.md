@@ -7,9 +7,7 @@
 </a>
 
 </div>
-<p align="center">
-  DPIP.lol Studio
-</p>
+
 
 Building the future through innovative design and cutting-edge technology. We craft digital experiences that make a difference.
 ---
