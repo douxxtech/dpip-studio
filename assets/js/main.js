@@ -153,5 +153,30 @@ projectsContainer.addEventListener('mousemove', (e) => {
     projectsScroll.style.transform = `translateX(-${projectsScrollAmount}px)`;
 });
 
+const header = document.querySelector('header');
+const heroSection = document.querySelector('.hero');
+const missionSection = document.querySelector('.mission-section');
 
+function handleHeaderOnScroll() {
+    if (window.innerWidth <= 768) {
+        header.style.transform = 'translateY(0)';
+        return;
+    }
+
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const heroHeight = heroSection.offsetHeight;
+    const missionOffset = missionSection.getBoundingClientRect().top;
+
+    const inHero = scrollTop < heroHeight;
+    const nearMission = missionOffset < 300;
+
+    if (scrollTop <= 50 || !inHero || nearMission) {
+        header.style.transform = 'translateY(0)';
+    } else {
+        header.style.transform = 'translateY(-100%)';
+    }
+}
+
+window.addEventListener('scroll', handleHeaderOnScroll);
+window.addEventListener('resize', handleHeaderOnScroll);
 document.addEventListener('DOMContentLoaded', loadProjects);

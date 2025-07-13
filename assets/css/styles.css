@@ -28,7 +28,7 @@ header {
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid #e5e5e5;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all 1s ease;
 }
 
 
@@ -437,6 +437,10 @@ footer {
 
     main {
         margin-top: 70px;
+    }
+
+    header {
+        transition: all 0.3s ease;
     }
 
     .nav-links {
