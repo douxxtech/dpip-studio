@@ -51,12 +51,194 @@
         a {
             color: #007BFF;
         }
+        
+        .data-request-section {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .form-toggle {
+            background: #007BFF;
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .form-toggle:hover {
+            background: #0056b3;
+        }
+        
+        .form-toggle::after {
+            content: '▼';
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+        
+        .form-toggle.collapsed::after {
+            transform: rotate(-90deg);
+        }
+        
+        .form-content {
+            padding: 20px;
+            display: none;
+        }
+        
+        .form-content.show {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .readonly-field {
+            background-color: #f8f9fa;
+            color: #6c757d;
+        }
+        
+        .generate-email-btn, .check-data-btn {
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .generate-email-btn {
+            background: #28a745;
+        }
+        
+        .generate-email-btn:hover {
+            background: #218838;
+        }
+        
+        .check-data-btn {
+            background: #17a2b8;
+        }
+        
+        .check-data-btn:hover {
+            background: #138496;
+        }
+        
+        .check-data-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .loading {
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #856404;
+        }
+        
+        .data-results {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .data-results.show {
+            display: block;
+        }
+        
+        .data-results h4 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        
+        .data-stat {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 5px 0;
+            border-bottom: 1px solid #cce7ff;
+        }
+        
+        .data-stat:last-child {
+            border-bottom: none;
+        }
+        
+        .data-stat strong {
+            color: #0056b3;
+        }
+        
+        .error-results {
+            background: #ffe6e6;
+            border: 1px solid #ffb3b3;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            color: #cc0000;
+            display: none;
+        }
+        
+        .error-results.show {
+            display: block;
+        }
+        
+        .turnstile-container {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+        }
     </style>
+    
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <h1>Privacy Policy</h1>
     <p>Effective Date: July 12, 2025</p>
     <p>Welcome to our Privacy Policy page. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at <a href="mailto:admin@dpip.lol">admin@dpip.lol</a>.</p>
+    
     <h2>Information We Collect</h2>
     <p>We collect personal information that you voluntarily provide to us when expressing an interest in obtaining information about us or our products and services, when participating in activities on the Services or otherwise contacting us.</p>
     <p>The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make and the products and features you use. The personal information we collect can include the following:</p>
@@ -64,6 +246,7 @@
         <li>IP Addresses</li>
         <li>User Agents</li>
     </ul>
+    
     <h2>How We Use Your Information</h2>
     <p>We use personal information collected via our Services for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations.</p>
     <p>We use the information we collect or receive:</p>
@@ -74,25 +257,269 @@
         <li>To enforce our terms, conditions and policies.</li>
         <li>To respond to legal requests and prevent harm.</li>
     </ul>
+    
     <h2>Will Your Information Be Shared With Anyone?</h2>
     <p>We do not share your personal information with anyone.</p>
+    
     <h2>How Long Do We Keep Your Information?</h2>
     <p>We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements).</p>
+    
     <h2>How Do We Keep Your Information Safe?</h2>
     <p>We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the services within a secure environment.</p>
+    
     <h2>Do We Collect Information From Minors?</h2>
-    <p>We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at <a href="mailto:admin@dpip.lol">admin@dpip.lol</a>.</p>
+    <p>We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at <a href="mailto:admin@dpip.lol">admin@dpip.lol</a>.</p>
+    
     <h2>What Are Your Privacy Rights?</h2>
     <p>In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right to request access and obtain a copy of your personal information, to request rectification or erasure, to restrict the processing of your personal information, and to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please contact us at <a href="mailto:admin@dpip.lol">admin@dpip.lol</a>.</p>
+
+    <div class="data-request-section">
+        <button class="form-toggle collapsed" onclick="toggleForm('checkDataForm')">
+            Check Your Data
+        </button>
+        <div class="form-content" id="checkDataForm">
+            <p>Use this tool to check what data we have stored about you in our systems. This will show you the number of times your IP address and user agent appear in our logs.</p>
+            
+            <div class="form-group">
+                <label for="userIpCheck">Your IP Address:</label>
+                <input type="text" id="userIpCheck" class="readonly-field" readonly value="Loading...">
+            </div>
+            
+            <div class="form-group">
+                <label for="userAgentCheck">Your User Agent:</label>
+                <input type="text" id="userAgentCheck" class="readonly-field" readonly>
+            </div>
+            
+            <div class="turnstile-container">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAABnUDroYpU0NSyM0"></div>
+            </div>
+            
+            <button class="check-data-btn" onclick="checkData()" id="checkDataButton">
+                Check My Data
+            </button>
+            
+            <div class="data-results" id="dataResults">
+                <h4>Your Data Summary</h4>
+                <div id="dataContent"></div>
+            </div>
+            
+            <div class="error-results" id="errorResults">
+                <h4>Error</h4>
+                <div id="errorContent"></div>
+            </div>
+            
+            <div class="note">
+                <strong>Note:</strong> This check is performed against our latest data backup. The results show how many times your current IP address and user agent appear in our logs.
+            </div>
+        </div>
+    </div>
+
+    <div class="data-request-section">
+        <button class="form-toggle collapsed" onclick="toggleForm('deleteDataForm')">
+            Request Data Deletion
+        </button>
+        <div class="form-content" id="deleteDataForm">
+            <p>Use this form to generate a pre-filled email for requesting deletion of your personal data. We automatically detect your IP address and user agent to help identify your data in our systems.</p>
+            
+            <div class="form-group">
+                <label for="userIp">Your IP Address:</label>
+                <input type="text" id="userIp" class="readonly-field" readonly value="Loading...">
+            </div>
+            
+            <div class="form-group">
+                <label for="userAgent">Your User Agent:</label>
+                <input type="text" id="userAgent" class="readonly-field" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="userName">Your Name (optional):</label>
+                <input type="text" id="userName" placeholder="Enter your name">
+            </div>
+            
+            <div class="form-group">
+                <label for="userEmail">Your Email Address:</label>
+                <input type="email" id="userEmail" placeholder="your.email@example.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="additionalInfo">Additional Information (optional):</label>
+                <textarea id="additionalInfo" placeholder="Any additional details that might help us identify your data (account usernames, dates of service usage, etc.)"></textarea>
+            </div>
+            
+            <button class="generate-email-btn" onclick="generateEmail()">
+                Generate Email Request
+            </button>
+            
+            <div class="note">
+                <strong>Note:</strong> Clicking "Generate Email Request" will open your default email client with a pre-filled message. You can review and modify the message before sending it to us.
+            </div>
+        </div>
+    </div>
+    
     <h2>Controls For Do-Not-Track Features</h2>
-    <p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (“DNT”) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. No uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online.</p>
+    <p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. No uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online.</p>
+    
     <h2>Do California Residents Have Specific Privacy Rights?</h2>
     <p>Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information.</p>
-    <p>California Civil Code Section 1798.83, also known as the “Shine The Light” law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.</p>
+    <p>California Civil Code Section 1798.83, also known as the "Shine The Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.</p>
     <p>If you are under 18 years of age, reside in California, and have a registered account with the Services, you have the right to request removal of unwanted data that you publicly post on the Services. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Services, but please be aware that the data may not be completely or comprehensively removed from our systems.</p>
+    
     <h2>Do We Make Updates To This Policy?</h2>
-    <p>We may update this privacy policy from time to time. The updated version will be indicated by an updated “Revised” date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.</p>
+    <p>We may update this privacy policy from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.</p>
+    
     <h2>How Can You Contact Us About This Policy?</h2>
-    <p>If you have questions or comments about this policy, you may email us at <a href="mailto:admin@dpip.lol">admin@dpip.lol</a>
+    <p>If you have questions or comments about this policy, you may email us at <a href="mailto:admin@dpip.lol">admin@dpip.lol</a></p>
+
+    <script>
+        document.getElementById('userAgent').value = navigator.userAgent;
+        document.getElementById('userAgentCheck').value = navigator.userAgent;
+        
+        async function fetchIpAddress() {
+            try {
+                const response = await fetch('https://dapi.dpip.lol/v1/ip/');
+                if (response.ok) {
+                    const ip = await response.text();
+                    const trimmedIp = ip.trim();
+                    document.getElementById('userIp').value = trimmedIp;
+                    document.getElementById('userIpCheck').value = trimmedIp;
+                } else {
+                    document.getElementById('userIp').value = 'Unable to fetch IP';
+                    document.getElementById('userIpCheck').value = 'Unable to fetch IP';
+                }
+            } catch (error) {
+                console.error('Error fetching IP:', error);
+                document.getElementById('userIp').value = 'Unable to fetch IP';
+                document.getElementById('userIpCheck').value = 'Unable to fetch IP';
+            }
+        }
+        
+        function toggleForm(formId) {
+            const allToggles = document.querySelectorAll('.form-toggle');
+            const allContents = document.querySelectorAll('.form-content');
+            const targetToggle = document.querySelector(`#${formId}`).previousElementSibling;
+            const targetContent = document.getElementById(formId);
+            
+            allToggles.forEach((toggle, index) => {
+                if (toggle !== targetToggle) {
+                    toggle.classList.add('collapsed');
+                    allContents[index].classList.remove('show');
+                }
+            });
+            
+            targetToggle.classList.toggle('collapsed');
+            targetContent.classList.toggle('show');
+        }
+        
+        async function checkData() {
+            const button = document.getElementById('checkDataButton');
+            const resultsDiv = document.getElementById('dataResults');
+            const errorDiv = document.getElementById('errorResults');
+            const contentDiv = document.getElementById('dataContent');
+            const errorContentDiv = document.getElementById('errorContent');
+            
+            resultsDiv.classList.remove('show');
+            errorDiv.classList.remove('show');
+            
+            const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]');
+            if (!turnstileResponse || !turnstileResponse.value) {
+                errorContentDiv.innerHTML = 'Please complete the verification challenge first.';
+                errorDiv.classList.add('show');
+                return;
+            }
+            
+            button.disabled = true;
+            button.textContent = 'Checking...';
+            
+            try {
+                const formData = new FormData();
+                formData.append('cf-turnstile-response', turnstileResponse.value);
+                
+                const response = await fetch('https://dcheck.dpip.lol/', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    let html = '';
+                    
+                    if (data.backup_date) {
+                        html += `<div class="data-stat"><span>Backup Date:</span><strong>${data.backup_date}</strong></div>`;
+                    }
+                    
+                    html += `<div class="data-stat"><span>Your IP Address:</span><strong>${data.requester_ip}</strong></div>`;
+                    html += `<div class="data-stat"><span>IP Occurrences in Logs:</span><strong>${data.ip_occurrences}</strong></div>`;
+                    html += `<div class="data-stat"><span>User Agent Occurrences in Logs:</span><strong>${data.ua_occurrences}</strong></div>`;
+                    
+                    contentDiv.innerHTML = html;
+                    resultsDiv.classList.add('show');
+                    
+                    if (window.turnstile) {
+                        window.turnstile.reset();
+                    }
+                } else {
+                    errorContentDiv.innerHTML = `Error: ${data.message || 'Unknown error occurred'}`;
+                    errorDiv.classList.add('show');
+                }
+            } catch (error) {
+                console.error('Error checking data:', error);
+                errorContentDiv.innerHTML = `Error: Failed to check data. Please try again later.`;
+                errorDiv.classList.add('show');
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Check My Data';
+            }
+        }
+        
+        function generateEmail() {
+            const userName = document.getElementById('userName').value;
+            const userEmail = document.getElementById('userEmail').value;
+            const userIp = document.getElementById('userIp').value;
+            const userAgent = document.getElementById('userAgent').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            
+            if (!userEmail) {
+                alert('Please enter your email address.');
+                return;
+            }
+            
+            const currentDate = new Date().toLocaleDateString();
+            
+            let emailBody = `Dear DPIP Studio Team,\n\n`;
+            emailBody += `I am writing to request the deletion of all personal data associated with my usage of your services, in accordance with applicable data protection regulations.\n\n`;
+            emailBody += `+----------------------------------+\n` 
+            emailBody += `REQUEST DETAILS:\n`;
+            emailBody += `- Request Date: ${currentDate}\n`;
+            emailBody += `- Email Address: ${userEmail}\n`;
+            if (userName) emailBody += `- Name: ${userName}\n`;
+            emailBody += `- IP Address: ${userIp}\n`;
+            emailBody += `- User Agent: ${userAgent}\n`;
+            
+            if (additionalInfo) {
+                emailBody += `ADDITIONAL INFORMATION:\n`;
+                emailBody += `${additionalInfo}\n`;
+            }
+
+            emailBody += `+----------------------------------+\n\n` 
+
+            
+            emailBody += `Please confirm receipt of this request and provide an estimated timeframe for completion. I understand that you may need to verify my identity before processing this request.\n\n`;
+            emailBody += `Thank you for your prompt attention to this matter.\n\n`;
+            emailBody += `Best regards,\n`;
+            if (userName) emailBody += `${userName}\n`;
+            emailBody += `${userEmail}`;
+            
+            const mailtoLink = `mailto:admin@dpip.lol?subject=${encodeURIComponent('Data Deletion Request - ' + userEmail)}&body=${encodeURIComponent(emailBody)}`;
+            
+            window.location.href = mailtoLink;
+        }
+        
+        fetchIpAddress();
+    </script>
 </body>
 </html>
